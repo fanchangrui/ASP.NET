@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+    ViewData["Title"] = "登录";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+
+    <style>
+        h2 {
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <el-container id="app" style="height: 700px; background-color: rgb(0, 132, 255);">
+        <el-main>
+            <el-row>
+                <el-col :span="12" offset="6">
+                    <el-card class="box-card" style="height: 500px; ">
+                        <el-form :model="user" label-width="auto">
+                            <el-form-item style="text-align: center;">
+                                <h2>登 录</h2>
+                            </el-form-item>
+                            <el-form-item label="账号">
+                                <el-input v-model="user.username" placeholder="请输入用户名"></el-input>
+                            </el-form-item>
+                        </el-form>
+                        <el-form :model="user" label-width="auto">
+                            <el-form-item label="密码">
+                                <el-input v-model="user.password" placeholder="请输入密码" :show-password=true></el-input>
+                            </el-form-item>
+                            <el-form-item style="text-align: center;">
+                                <el-button type="primary" round>登录</el-button>
+                                <el-button type="danger"
+                                           round
+                                           v-on:click="onRegisterBUttonClick">注册</el-button>
+                            </el-form-item>
+                        </el-form>
+                    </el-card>
+            </el-row>
+            </el-col>
+        </el-main>
+    </el-container>
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            user: {
+                username: "",
+                password: "",
+            },
+        },
+        methods: {
+            onRegisterBUttonClick: function () {
+                window.location = "/Home/Register";
+            }
+        }
+    });
+</script>
+
+</html>
+
